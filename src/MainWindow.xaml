@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:src"
         mc:Ignorable="d"
-        Title="Trustworthy Computing: Run Partially Trusted Code in a Sandbox" Height="600" Width="800" ResizeMode="NoResize">
+        Title="Trustworthy Computing: Run Partially Trusted Code in a Sandbox" Height="600" Width="800">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"></ColumnDefinition>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="auto"></RowDefinition>
-			<RowDefinition Height="auto"></RowDefinition>
 			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="auto"></RowDefinition>
 		</Grid.RowDefinitions>
 		<GroupBox Header="Application" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
 				<Grid>
@@ -31,28 +31,25 @@
 					<TextBox x:Name="ParametersLabel" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" />
 				</Grid>
 			</GroupBox>
-		<GroupBox Header="Permissions" Height="300" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0">
-				<StackPanel>
-					<TabControl x:Name="PermissionsTabControl" Margin="5,5,5,5" Height="240">
-
-					</TabControl>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="auto"></ColumnDefinition>
-							<ColumnDefinition Width="*"></ColumnDefinition>
-							<ColumnDefinition Width="auto"></ColumnDefinition>
-							<ColumnDefinition Width="auto"></ColumnDefinition>
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="auto"></RowDefinition>
-						</Grid.RowDefinitions>
-						<Button x:Name="ClearButton" Content="Clear" Margin="5,5,5,5" Width="80" Grid.Row="0" Grid.Column="0" />
-						<Button x:Name="BrowseButton" Content="Browse..." Margin="5,5,5,5" Width="80" Grid.Row="0" Grid.Column="2" />
-						<Button x:Name="RunButton" Content="Run" Margin="5,5,5,5" Width="80" Grid.Row="0" Grid.Column="3" />
-					</Grid>
-				</StackPanel>
-			</GroupBox>
-		<GroupBox Header="Console" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0">
+		<GroupBox Header="Permissions" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="auto"></ColumnDefinition>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="auto"></ColumnDefinition>
+					<ColumnDefinition Width="auto"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"></RowDefinition>
+					<RowDefinition Height="auto"></RowDefinition>
+				</Grid.RowDefinitions>
+				<TabControl x:Name="PermissionsTabControl" Margin="5,5,5,5" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="4" />
+				<Button x:Name="ClearButton" Content="Clear" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="0" />
+				<Button x:Name="BrowseButton" Content="Browse..." Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="2" />
+				<Button x:Name="RunButton" Content="Run" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="3" />
+			</Grid>
+		</GroupBox>
+		<GroupBox Header="Console" Height="200" Grid.Row="2" Grid.Column="0">
 			<RichTextBox x:Name="ConsoleRichTextBox" Margin="5,5,5,5" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True">
 				<FlowDocument />
 			</RichTextBox>
