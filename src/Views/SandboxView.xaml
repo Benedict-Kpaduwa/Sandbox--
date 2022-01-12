@@ -46,7 +46,7 @@
 				<TabControl  x:Name="PermissionsTabControl" Margin="5,5,5,5" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="4" />
 				<Button Command="{Binding OnClearCommand}" x:Name="ClearButton" Content="Clear" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="0" />
 				<Button Command="{Binding OnBrowseCommand}" x:Name="BrowseButton" Content="Browse..." Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="2" />
-				<Button x:Name="RunButton" Content="Run" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="3" />
+				<Button Command="{Binding OnRunCommand}" x:Name="RunButton" Content="Run" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="3" />
 			</Grid>
 		</GroupBox>
 		<GroupBox Header="Console" Height="200" Grid.Row="2" Grid.Column="0">

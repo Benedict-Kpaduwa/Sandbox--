@@ -27,4 +27,12 @@ public class SandboxViewModel
         get { return clear_command ??= new ClearCommand(this); }
         set { clear_command = value; }
     }
+
+    private ICommand run_command;
+
+    public ICommand OnRunCommand
+    {
+        get { return run_command ??= new RunCommand(this); }
+        set { run_command = value; }
+    }
 }
