@@ -15,6 +15,14 @@ public class SandboxModel : INotifyPropertyChanged
         set { executable_filename = value; OnPropertyChanged("ExecutableFilename"); }
     }
 
+    public string command_line_parameters;
+
+    public string CommandLineParameters
+    {
+        get { return command_line_parameters; }
+        set { command_line_parameters = value; OnPropertyChanged("CommandLineParameters"); }
+    }
+
     private string console;
 
     public string Console
