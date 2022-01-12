@@ -7,6 +7,14 @@ public class SandboxModel : INotifyPropertyChanged
 
     }
 
+    public string executable_filename;
+
+    public string ExecutableFilename
+    {
+        get { return executable_filename; }
+        set { executable_filename = value; OnPropertyChanged("ExecutableFilename"); }
+    }
+
     private string console;
 
     public string Console
