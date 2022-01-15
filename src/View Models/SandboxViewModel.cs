@@ -1,12 +1,24 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Security.Permissions;
+using System.Windows.Input;
+using src.Models;
 
 public class SandboxViewModel
 {
     public SandboxModel SandboxModel { get; set; }
 
+    public ObservableCollection<PermissionsModel> PermissionsControls { get; set; }
+
     public SandboxViewModel()
     {
         SandboxModel = new SandboxModel();
+
+        PermissionsControls = new ObservableCollection<PermissionsModel>()
+        {
+            new PermissionsModel{PermissionsHeader = nameof(FileDialogPermission), PermissionsContent = "" },
+            new PermissionsModel{PermissionsHeader = nameof(DataProtectionPermission), PermissionsContent = "" },
+            new PermissionsModel{PermissionsHeader = nameof(SecurityPermission), PermissionsContent = "" }
+        };
     }
 
     private ICommand clear_command;

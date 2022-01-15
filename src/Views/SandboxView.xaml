@@ -43,7 +43,18 @@
 					<RowDefinition Height="*"></RowDefinition>
 					<RowDefinition Height="auto"></RowDefinition>
 				</Grid.RowDefinitions>
-				<TabControl  x:Name="PermissionsTabControl" Margin="5,5,5,5" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="4" />
+				<TabControl ItemsSource="{Binding PermissionsControls}" x:Name="PermissionsTabControl" Margin="5,5,5,5" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="4">
+					<TabControl.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding PermissionsHeader}" />
+						</DataTemplate>
+					</TabControl.ItemTemplate>
+					<TabControl.ContentTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding PermissionsContent}" />
+						</DataTemplate>
+					</TabControl.ContentTemplate>
+				</TabControl>
 				<Button Command="{Binding OnClearCommand}" x:Name="ClearButton" Content="Clear" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="0" />
 				<Button Command="{Binding OnBrowseCommand}" x:Name="BrowseButton" Content="Browse..." Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="2" />
 				<Button Command="{Binding OnRunCommand}" x:Name="RunButton" Content="Run" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="3" />
