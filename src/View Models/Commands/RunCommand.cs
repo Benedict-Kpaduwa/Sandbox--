@@ -19,7 +19,7 @@ internal class RunCommand : ICommand
 
     public bool CanExecute(object parameter)
     {
-        return true;
+        return !System.String.IsNullOrEmpty(ViewModel.SandboxModel.ExecutableFilename);
     }
 
     public void Execute(object parameter)
