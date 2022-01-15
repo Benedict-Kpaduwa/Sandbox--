@@ -12,7 +12,7 @@ public class SandboxModel : INotifyPropertyChanged
     public string ExecutableFilename
     {
         get { return executable_filename; }
-        set { executable_filename = value; OnPropertyChanged("ExecutableFilename"); }
+        set { executable_filename = value; OnPropertyChanged(nameof(ExecutableFilename)); }
     }
 
     public string command_line_parameters;
@@ -20,15 +20,15 @@ public class SandboxModel : INotifyPropertyChanged
     public string CommandLineParameters
     {
         get { return command_line_parameters; }
-        set { command_line_parameters = value; OnPropertyChanged("CommandLineParameters"); }
+        set { command_line_parameters = value; OnPropertyChanged(nameof(CommandLineParameters)); }
     }
 
-    private string console;
+    private string console_log;
 
-    public string Console
+    public string ConsoleLog
     {
-        get { return console; }
-        set { console = value; OnPropertyChanged("Console"); }
+        get { return console_log; }
+        set { console_log = value; OnPropertyChanged(nameof(ConsoleLog)); }
     }
 
     #region INotifyPropertyChanged Members

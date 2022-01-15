@@ -19,12 +19,12 @@ internal class ClearCommand : ICommand
 
     public bool CanExecute(object parameter)
     {
-        return !System.String.IsNullOrEmpty(ViewModel.SandboxModel.Console);
+        return !System.String.IsNullOrEmpty(ViewModel.SandboxModel.ConsoleLog);
     }
 
     public void Execute(object parameter)
     {
-        ViewModel.SandboxModel.Console = "";
+        ViewModel.SandboxModel.ConsoleLog = "";
     }
 
     #endregion

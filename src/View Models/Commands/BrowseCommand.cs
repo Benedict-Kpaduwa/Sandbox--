@@ -30,6 +30,8 @@ internal class BrowseCommand : ICommand
         if (openFileDialog.ShowDialog() == true)
         {
             ViewModel.SandboxModel.ExecutableFilename = openFileDialog.FileName;
+
+            ViewModel.SandboxModel.ConsoleLog += $"File Selected from file dialog: {openFileDialog.SafeFileName} {System.Environment.NewLine}";
         }
     }
 

@@ -50,7 +50,7 @@
 			</Grid>
 		</GroupBox>
 		<GroupBox Header="Console" Height="200" Grid.Row="2" Grid.Column="0">
-			<TextBox Text="{Binding SandboxModel.Console}" x:Name="ConsoleTextBox" Margin="5,5,5,5" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" />
+			<TextBox Text="{Binding SandboxModel.ConsoleLog}" x:Name="ConsoleTextBox" Margin="5,5,5,5" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" />
 		</GroupBox>
 	</Grid>
 </Window>
