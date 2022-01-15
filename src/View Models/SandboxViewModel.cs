@@ -2,46 +2,50 @@
 using System.Security.Permissions;
 using System.Windows.Input;
 using src.Models;
+using src.View_Models.Commands;
 
-public class SandboxViewModel
+namespace src.View_Models
 {
-    public SandboxModel SandboxModel { get; set; }
-
-    public ObservableCollection<PermissionsModel> PermissionsControls { get; set; }
-
-    public SandboxViewModel()
+    public class SandboxViewModel
     {
-        SandboxModel = new SandboxModel();
+        public SandboxModel SandboxModel { get; set; }
 
-        PermissionsControls = new ObservableCollection<PermissionsModel>()
+        public ObservableCollection<PermissionsModel> PermissionsControls { get; set; }
+
+        public SandboxViewModel()
+        {
+            SandboxModel = new SandboxModel();
+
+            PermissionsControls = new ObservableCollection<PermissionsModel>()
         {
             new PermissionsModel{PermissionsHeader = nameof(FileDialogPermission), PermissionsContent = "" },
             new PermissionsModel{PermissionsHeader = nameof(DataProtectionPermission), PermissionsContent = "" },
             new PermissionsModel{PermissionsHeader = nameof(SecurityPermission), PermissionsContent = "" }
         };
-    }
+        }
 
-    private ICommand clear_command;
+        private ICommand clear_command;
 
-    public ICommand OnClearCommand
-    {
-        get { return clear_command ??= new ClearCommand(this); }
-        set { clear_command = value; }
-    }
+        public ICommand OnClearCommand
+        {
+            get { return clear_command ??= new ClearCommand(this); }
+            set { clear_command = value; }
+        }
 
-    public ICommand browse_command;
+        public ICommand browse_command;
 
-    public ICommand OnBrowseCommand
-    {
-        get { return browse_command ??= new BrowseCommand(this); }
-        set { browse_command = value; }
-    }
+        public ICommand OnBrowseCommand
+        {
+            get { return browse_command ??= new BrowseCommand(this); }
+            set { browse_command = value; }
+        }
 
-    private ICommand run_command;
+        private ICommand run_command;
 
-    public ICommand OnRunCommand
-    {
-        get { return run_command ??= new RunCommand(this); }
-        set { run_command = value; }
+        public ICommand OnRunCommand
+        {
+            get { return run_command ??= new RunCommand(this); }
+            set { run_command = value; }
+        }
     }
 }

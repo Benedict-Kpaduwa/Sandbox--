@@ -24,7 +24,7 @@ namespace src
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new SandboxViewModel();
+            DataContext = new View_Models.SandboxViewModel();
         }
     }
 }
