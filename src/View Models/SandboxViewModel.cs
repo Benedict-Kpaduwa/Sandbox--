@@ -1,8 +1,5 @@
 ﻿using System.Windows.Input;
 
-/// <summary>
-/// 
-/// </summary>
 public class SandboxViewModel
 {
     public SandboxModel SandboxModel { get; set; }
