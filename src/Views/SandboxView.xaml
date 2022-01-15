@@ -16,21 +16,21 @@
 			<RowDefinition Height="auto"></RowDefinition>
 		</Grid.RowDefinitions>
 		<GroupBox Header="Application" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="auto"></ColumnDefinition>
-						<ColumnDefinition Width="*"></ColumnDefinition>
-					</Grid.ColumnDefinitions>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-					</Grid.RowDefinitions>
-					<Label Content="Filename:" Margin="0,5,0,5" Grid.Row="0" Grid.Column="0" />
-					<TextBox Text="{Binding SandboxModel.ExecutableFilename}" x:Name="FilenameLabel" Margin="5,5,5,5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" />
-					<Label Content="Parameters:" Margin="0,5,0,5" Grid.Row="1" Grid.Column="0" />
-					<TextBox Text="{Binding SandboxModel.CommandLineParameters}" x:Name="ParametersLabel" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" />
-				</Grid>
-			</GroupBox>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="auto"></ColumnDefinition>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto"></RowDefinition>
+					<RowDefinition Height="auto"></RowDefinition>
+				</Grid.RowDefinitions>
+				<Label Content="Filename:" Margin="0,5,0,5" Grid.Row="0" Grid.Column="0" />
+				<TextBox Text="{Binding SandboxModel.ExecutableFilename}" x:Name="FilenameLabel" Margin="5,5,5,5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" />
+				<Label Content="Parameters:" Margin="0,5,0,5" Grid.Row="1" Grid.Column="0" />
+				<TextBox Text="{Binding SandboxModel.CommandLineParameters}" x:Name="ParametersLabel" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" />
+			</Grid>
+		</GroupBox>
 		<GroupBox Header="Permissions" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0">
 			<Grid>
 				<Grid.ColumnDefinitions>
