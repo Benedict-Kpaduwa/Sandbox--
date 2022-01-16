@@ -17,18 +17,17 @@ namespace src.View_Models
             SandboxModel = new SandboxModel();
 
             PermissionsControls = new ObservableCollection<PermissionsModel>()
-        {
-            new PermissionsModel{PermissionsHeader = nameof(FileDialogPermission), PermissionsContent = "" },
-            new PermissionsModel{PermissionsHeader = nameof(DataProtectionPermission), PermissionsContent = "" },
-            new PermissionsModel{PermissionsHeader = nameof(SecurityPermission), PermissionsContent = "" }
-        };
+            {
+                new PermissionsModel{PermissionsHeader = nameof(FileDialogPermission), PermissionsContent = "" },
+                new PermissionsModel{PermissionsHeader = nameof(SecurityPermission), PermissionsContent = "" }
+            };
         }
 
         private ICommand clear_command;
 
         public ICommand OnClearCommand
         {
-            get { return clear_command ??= new ClearCommand(this); }
+            get { if (clear_command == null) clear_command = new ClearCommand(this); return clear_command; }
             set { clear_command = value; }
         }
 
@@ -36,7 +35,7 @@ namespace src.View_Models
 
         public ICommand OnBrowseCommand
         {
-            get { return browse_command ??= new BrowseCommand(this); }
+            get { if (browse_command == null) browse_command = new BrowseCommand(this); return browse_command; }
             set { browse_command = value; }
         }
 
@@ -44,7 +43,7 @@ namespace src.View_Models
 
         public ICommand OnRunCommand
         {
-            get { return run_command ??= new RunCommand(this); }
+            get { if(run_command == null) run_command = new RunCommand(this); return run_command; }
             set { run_command = value; }
         }
     }
