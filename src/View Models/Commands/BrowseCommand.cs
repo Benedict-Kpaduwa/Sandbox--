@@ -33,7 +33,8 @@ namespace src.View_Models.Commands
             {
                 ViewModel.SandboxModel.ExecutableFilename = openFileDialog.FileName;
 
-                ViewModel.SandboxModel.ConsoleLog += $"File Selected from file dialog: {openFileDialog.SafeFileName} {System.Environment.NewLine}";
+                var Timestamp = new System.DateTimeOffset(System.DateTime.UtcNow).ToString("HH:mm:ss");
+                ViewModel.SandboxModel.ConsoleLog += $"[{Timestamp}] File Selected from file dialog: {openFileDialog.SafeFileName} {System.Environment.NewLine}";
             }
         }
 
