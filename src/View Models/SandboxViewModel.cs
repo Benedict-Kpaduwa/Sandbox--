@@ -31,7 +31,7 @@ namespace src.View_Models
             set { clear_command = value; }
         }
 
-        public ICommand browse_command;
+        private ICommand browse_command;
 
         public ICommand OnBrowseCommand
         {

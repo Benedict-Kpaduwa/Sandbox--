@@ -9,7 +9,7 @@ namespace src.Models
 
         }
 
-        public string executable_filename;
+        private string executable_filename;
 
         public string ExecutableFilename
         {
@@ -17,7 +17,7 @@ namespace src.Models
             set { executable_filename = value; OnPropertyChanged(nameof(ExecutableFilename)); }
         }
 
-        public string command_line_parameters;
+        private string command_line_parameters;
 
         public string CommandLineParameters
         {

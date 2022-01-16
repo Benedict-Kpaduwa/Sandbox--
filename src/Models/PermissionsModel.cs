@@ -17,7 +17,7 @@ namespace src.Models
             set { permissions_header = value; OnPropertyChanged(nameof(PermissionsHeader)); }
         }
 
-        public string permissions_content { get; set; }
+        private string permissions_content { get; set; }
 
         public string PermissionsContent
         {
