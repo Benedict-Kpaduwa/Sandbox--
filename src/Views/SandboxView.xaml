@@ -51,7 +51,7 @@
 					</TabControl.ItemTemplate>
 					<TabControl.ContentTemplate>
 						<DataTemplate>
-							<TextBlock Text="{Binding PermissionsContent}" />
+							<ListView ItemsSource="{Binding PermissionsContent}" />
 						</DataTemplate>
 					</TabControl.ContentTemplate>
 				</TabControl>

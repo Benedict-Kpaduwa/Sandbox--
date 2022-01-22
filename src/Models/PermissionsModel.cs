@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace src.Models
 {
@@ -17,9 +18,9 @@ namespace src.Models
             set { permissions_header = value; OnPropertyChanged(nameof(PermissionsHeader)); }
         }
 
-        private string permissions_content { get; set; }
+        private ObservableCollection<string> permissions_content { get; set; }
 
-        public string PermissionsContent
+        public ObservableCollection<string> PermissionsContent
         {
             get { return permissions_content; }
             set { permissions_content = value; OnPropertyChanged(nameof(PermissionsContent)); }

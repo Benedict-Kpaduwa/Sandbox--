@@ -18,8 +18,36 @@ namespace src.View_Models
 
             PermissionsControls = new ObservableCollection<PermissionsModel>()
             {
-                new PermissionsModel{PermissionsHeader = nameof(FileDialogPermission), PermissionsContent = "" },
-                new PermissionsModel{PermissionsHeader = nameof(SecurityPermission), PermissionsContent = "" }
+                new PermissionsModel
+                {
+                    PermissionsHeader = nameof(EnvironmentPermission), 
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(EnvironmentPermissionAccess))) 
+                },
+                new PermissionsModel
+                {
+                    PermissionsHeader = nameof(FileDialogPermission),
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(FileDialogPermissionAccess)))
+                },
+                new PermissionsModel
+                {
+                    PermissionsHeader = nameof(FileIOPermission), 
+                    PermissionsContent =  new ObservableCollection<string>(System.Enum.GetNames(typeof(FileIOPermissionAccess))) 
+                },
+                new PermissionsModel
+                {
+                    PermissionsHeader = nameof(RegistryPermission),
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(RegistryPermissionAccess)))
+                },
+                new PermissionsModel
+                {
+                    PermissionsHeader = nameof(SecurityPermission),
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(SecurityPermissionFlag)))
+                },
+                new PermissionsModel
+                {
+                    PermissionsHeader = nameof(UIPermission),
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(UIPermissionWindow)))
+                }
             };
         }
 

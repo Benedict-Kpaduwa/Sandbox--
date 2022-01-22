@@ -8,7 +8,7 @@
     <AssemblyOriginatorKeyFile>strong.snk</AssemblyOriginatorKeyFile>
     <PlatformTarget>x86</PlatformTarget>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <BaseOutputPath>bin\Debug\</BaseOutputPath>
+    <BaseOutputPath>bin\</BaseOutputPath>
   </PropertyGroup>
 
 </Project>
