@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using System.Security;
+using System.Security.Permissions;
+using System.Windows.Input;
 
 namespace src.View_Models.Commands
 {
@@ -26,7 +28,8 @@ namespace src.View_Models.Commands
 
         public void Execute(object parameter)
         {
-            System.Windows.MessageBox.Show("RunCommand:Execute");
+            Sandboxer sb = new Sandboxer();
+            sb.ApplicationInitialise(ViewModel.SandboxModel.ExecutableFilename, ViewModel.SandboxModel.CommandLineParameters, new PermissionSet(PermissionState.Unrestricted));
         }
 
         #endregion
