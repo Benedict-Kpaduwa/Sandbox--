@@ -5,63 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:src"
         mc:Ignorable="d"
-        Title="Trustworthy Computing: Run Partially Trusted Code in a Sandbox" Height="600" Width="800">
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"></ColumnDefinition>
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="auto"></RowDefinition>
-			<RowDefinition Height="*"></RowDefinition>
-			<RowDefinition Height="auto"></RowDefinition>
-		</Grid.RowDefinitions>
-		<GroupBox Header="Application" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="auto"></ColumnDefinition>
-					<ColumnDefinition Width="*"></ColumnDefinition>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="auto"></RowDefinition>
-					<RowDefinition Height="auto"></RowDefinition>
-				</Grid.RowDefinitions>
-				<Label Content="Filename:" Margin="0,5,0,5" Grid.Row="0" Grid.Column="0" />
-				<TextBox Text="{Binding SandboxModel.ExecutableFilename}" x:Name="FilenameLabel" Margin="5,5,5,5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" />
-				<Label Content="Parameters:" Margin="0,5,0,5" Grid.Row="1" Grid.Column="0" />
-				<TextBox Text="{Binding SandboxModel.CommandLineParameters}" x:Name="ParametersLabel" Margin="5,5,5,5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" />
-			</Grid>
-		</GroupBox>
-		<GroupBox Header="Permissions" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="auto"></ColumnDefinition>
-					<ColumnDefinition Width="*"></ColumnDefinition>
-					<ColumnDefinition Width="auto"></ColumnDefinition>
-					<ColumnDefinition Width="auto"></ColumnDefinition>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="*"></RowDefinition>
-					<RowDefinition Height="auto"></RowDefinition>
-				</Grid.RowDefinitions>
-				<TabControl ItemsSource="{Binding PermissionsControls}" x:Name="PermissionsTabControl" Margin="5,5,5,5" VerticalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="4">
-					<TabControl.ItemTemplate>
-						<DataTemplate>
-							<TextBlock Text="{Binding PermissionsHeader}" />
-						</DataTemplate>
-					</TabControl.ItemTemplate>
-					<TabControl.ContentTemplate>
-						<DataTemplate>
-							<ListView ItemsSource="{Binding PermissionsContent}" />
-						</DataTemplate>
-					</TabControl.ContentTemplate>
-				</TabControl>
-				<Button Command="{Binding OnClearCommand}" x:Name="ClearButton" Content="Clear" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="0" />
-				<Button Command="{Binding OnBrowseCommand}" x:Name="BrowseButton" Content="Browse..." Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="2" />
-				<Button Command="{Binding OnRunCommand}" x:Name="RunButton" Content="Run" Margin="5,5,5,5" Width="80" Grid.Row="1" Grid.Column="3" />
-			</Grid>
-		</GroupBox>
-		<GroupBox Header="Console" Height="200" Grid.Row="2" Grid.Column="0">
-			<TextBox Text="{Binding SandboxModel.ConsoleLog}" x:Name="ConsoleTextBox" Margin="5,5,5,5" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" />
-		</GroupBox>
-	</Grid>
+        Title="Trustworthy Computing" Height="600" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <TextBlock Text="Select File:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <Button Content="Browse..." Command="{Binding OnBrowseCommand}" Width="80"/>
+            <TextBlock Text="{Binding SandboxModel.ExecutableFilename}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+        </StackPanel>
+        <GroupBox Header="Permissions" Grid.Row="1" Margin="5">
+            <StackPanel>
+                <ListView ItemsSource="{Binding PermissionsControls}" HorizontalContentAlignment="Stretch" BorderThickness="0">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding PermissionsHeader}" Margin="5"/>
+                                <ListView ItemsSource="{Binding PermissionsContent}" HorizontalContentAlignment="Stretch" BorderThickness="0">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Padding" Value="0"/>
+                                            <Setter Property="Margin" Value="0"/>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Console" Grid.Row="2" Margin="5">
+            <TextBox Text="{Binding SandboxModel.ConsoleLog}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True"/>
+        </GroupBox>
+        <Button Grid.Row="2" Margin="5" Padding="10,5" Command="{Binding OnRunCommand}" Content="Run" HorizontalAlignment="Right"/>
+    </Grid>
 </Window>

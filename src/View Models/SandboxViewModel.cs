@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Security.Permissions;
 using System.Windows.Input;
 using src.Models;
@@ -20,36 +21,37 @@ namespace src.View_Models
             {
                 new PermissionsModel
                 {
-                    PermissionsHeader = nameof(EnvironmentPermission), 
-                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(EnvironmentPermissionAccess))) 
+                    PermissionsHeader = nameof(EnvironmentPermission),
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(EnvironmentPermissionAccess)).Where(x => x != EnvironmentPermissionAccess.NoAccess.ToString() && x != EnvironmentPermissionAccess.AllAccess.ToString()))
                 },
                 new PermissionsModel
                 {
                     PermissionsHeader = nameof(FileDialogPermission),
-                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(FileDialogPermissionAccess)))
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(FileDialogPermissionAccess)).Where(x => x != "OpenSave"))
                 },
                 new PermissionsModel
                 {
-                    PermissionsHeader = nameof(FileIOPermission), 
-                    PermissionsContent =  new ObservableCollection<string>(System.Enum.GetNames(typeof(FileIOPermissionAccess))) 
+                    PermissionsHeader = nameof(FileIOPermission),
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(FileIOPermissionAccess)).Where(x => x != FileIOPermissionAccess.NoAccess.ToString() && x != FileIOPermissionAccess.AllAccess.ToString() && x != FileIOPermissionAccess.PathDiscovery.ToString()))
                 },
                 new PermissionsModel
                 {
                     PermissionsHeader = nameof(RegistryPermission),
-                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(RegistryPermissionAccess)))
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(RegistryPermissionAccess)).Where(x => x != RegistryPermissionAccess.NoAccess.ToString() && x != RegistryPermissionAccess.AllAccess.ToString()))
                 },
                 new PermissionsModel
                 {
                     PermissionsHeader = nameof(SecurityPermission),
-                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(SecurityPermissionFlag)))
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(SecurityPermissionFlag)).Where(x => x != "SkipVerification" && x != "Execution" && x != "ControlThread" && x != "UnmanagedCode" && x != "SerializationFormatter" && x != "ControlDomainPolicy" && x != "ControlPrincipal" && x != "ControlAppDomain" && x != "RemotingConfiguration" && x != "ControlEvidence" && x != "BindingRedirects" && x != "AllFlags" && x != "Infrastructure"))
                 },
                 new PermissionsModel
                 {
                     PermissionsHeader = nameof(UIPermission),
-                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(UIPermissionWindow)))
+                    PermissionsContent = new ObservableCollection<string>(System.Enum.GetNames(typeof(UIPermissionWindow)).Where(x => x != "NoWindows" && x != "AllWindows"))
                 }
             };
         }
+
 
         private ICommand clear_command;
 
